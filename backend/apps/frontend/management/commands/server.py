@@ -1,4 +1,4 @@
-import os
+import os, sys
 import subprocess
 import atexit
 import signal
@@ -43,8 +43,8 @@ class Command(StaticfilesRunserverCommand):
             command,
             shell=True,
             stdin=subprocess.PIPE,
-            stdout=self.stdout,
-            stderr=self.stderr,
+            stdout=sys.stdout,
+            stderr=sys.stderr,
         )
 
         def kill_grunt_process(pid):
